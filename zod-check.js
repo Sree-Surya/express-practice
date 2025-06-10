@@ -13,7 +13,6 @@ app.post("/login", (req, res) => {
   });
 
   const data = req.body;
-  console.log(req);
 
   const validationOutput = schema.safeParse(data);
 
