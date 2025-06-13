@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="title" type="text" placeholder="title" /> <br /><br />
+    <input id="description" type="text" placeholder="description" />
+    <br /><br />
+    <button onclick="addToDo()">Add to do</button>
+    <br />
+    <div id="container"></div>
+
+    <script>
+      let id = 1;
+      function markDone(buttonID) {
+        const currentButton = document.getElementById(buttonID);
+        const prevData = currentButton.innerHTML;
+        newData = prevData == "Mark Done" ? "Done" : "Mark Done";
+        currentButton.innerHTML = newData;
+      }
+      function addToDo() {
+        const title = document.getElementById("title").value;
+        var description = document.getElementById("description").value;
+        console.log(title, description);
+
+        const previousHTML = document.getElementById("container").innerHTML;
+
+        document.getElementById("container").innerHTML =
+          previousHTML +
+          `
+        <div>
+            <div>${title}</div>
+            <div>${description}</div>
+            <button id=${id} onclick="markDone(${id})">Mark Done</button>
+        </div>
+        `;
+        id++;
+      }
+    </script>
+  </body>
+</html>
