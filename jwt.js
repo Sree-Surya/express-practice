@@ -4,11 +4,11 @@ const dotenv = require("dotenv");
 const zod = require("zod");
 
 const mongoose = require("mongoose");
-const { email } = require("zod/v4");
 
 dotenv.config();
 
 mongodbConnectionString = process.env.MONGODB_URL;
+const JWT_PASSWORD = process.env.JWT_PASSWORD;
 
 mongoose.connect(mongodbConnectionString);
 const User = mongoose.model("Users", {
@@ -16,8 +16,6 @@ const User = mongoose.model("Users", {
   email: String,
   password: String,
 });
-
-const JWT_PASSWORD = "json123";
 
 const USERS_INFO = [
   {
